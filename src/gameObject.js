@@ -62,7 +62,6 @@ class GameObject{
         }
     };
 
-    // Startar en interaktion om den finns i de aktuella alternativen
     startCurrentInteraction(starSetInteraction){
         if(this.currentAvailableActionslist.includes(starSetInteraction)){
             if(starSetInteraction === "close"){
@@ -86,7 +85,6 @@ class GameObject{
         }
     };
 
-    // Avbryter den aktuella interaktionen (exempel på abort-funktionalitet)
     abortCurrentInteraction(){
         if (this.currentInteraction === null) {
             console.error("Warning! No current interaction to abort.");
