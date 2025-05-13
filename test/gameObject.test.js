@@ -15,12 +15,12 @@ describe("GameObject", ()=>{
         expect(interactions).toStrictEqual(["move"])
     })
 
-    it("Should start a interaction look", ()=>{
+    it("Should start a interaction open/close", ()=>{
         const G = new GameObject ("door")
         G.startInteraction("open/close");
         expect(consoleSpy).toHaveBeenCalledWith("you grabed the handel")
     })
-    it("Should start a interaction open", ()=>{
+    it("Should start a interaction move", ()=>{
         const G = new GameObject ("box")
         G.startInteraction("move");
         expect(consoleSpy).toHaveBeenCalledWith("you start moving the box")
@@ -47,7 +47,7 @@ describe("GameObject", ()=>{
         const listInteractions = G.listCurrentInteractionOptions();
         expect(listInteractions).toStrictEqual(["close"]);
     });
-    it("should return current interaction options for mirror from constructor", () => {
+    it("should return current interaction options for box", () => {
         const G = new GameObject("box");
         G.startInteraction("move");
         const listInteractions = G.listCurrentInteractionOptions();
@@ -98,7 +98,7 @@ describe("GameObject", ()=>{
         G.abortCurrentInteraction(null);
         expect(consoleerror).toHaveBeenCalledWith("Warning! No current interaction to abort.");
     });
-    it("should log aborting message and set currentInteraction to null", () => {
+    it("should log aborting interaction and set currentInteraction to null", () => {
         const G = new GameObject("door");
         G.startInteraction("open/close");
         const currentInteractions = G.abortCurrentInteraction();
